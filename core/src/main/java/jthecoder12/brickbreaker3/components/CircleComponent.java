@@ -4,24 +4,24 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
-public class RectComponent extends ObjectComponent {
-    private Vector2 size;
+public class CircleComponent extends ObjectComponent {
+    private float radius;
 
-    public RectComponent(Vector2 position, Vector2 size, Color color) {
+    public CircleComponent(Vector2 position, float radius, Color color) {
         this.position = position;
         this.color = color;
 
-        resize(size);
+        resize(radius);
     }
 
     @Override
     public void resize(Object nSize) {
-        size = (Vector2) nSize;
+        radius = (float) nSize;
     }
 
     @Override
     public void render(ShapeRenderer shapeRenderer) {
         shapeRenderer.setColor(color);
-        shapeRenderer.rect(position.x, position.y, size.x, size.y);
+        shapeRenderer.circle(position.x, position.y, radius);
     }
 }
